@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import Data
 
-
+"""
+Tu tworzysz bazę danych?
+"""
 class DataAdmin(admin.ModelAdmin):
     search_fields = ('title', 'created_date')
     list_display = ('title', 'created_date', 'media_type', 'concepts')
