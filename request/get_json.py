@@ -9,6 +9,11 @@ def present_json_to_db():
     Data.objects.create(title=d['title'],
                         url=d['url'],
                         hd_url=d['hdurl'],
+                        """ 
+                        concepts=', '.join(d['concepts'].split(',')),
+                        ^nie wiem czy to ma sens, zależy co wypluwa
+                        Twoje concepts?
+                        """ 
                         concepts=', '.join(d['concepts']),
                         explanation=d['explanation'],
                         media_type=d['media_type'])
