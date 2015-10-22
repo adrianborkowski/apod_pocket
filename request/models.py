@@ -14,6 +14,9 @@ class Data(models.Model):
     hd_url = models.URLField(null=True, blank=True)
     media_type = models.CharField(max_length=10, choices=MEDIA_TYPES)
     explanation = models.TextField()
+    """
+    i gdzie usuwasz te nawiasy kwadratowe?
+    """
     concepts = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
