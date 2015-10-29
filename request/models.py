@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 
 MEDIA_TYPES = (
     ('image', 'Image'),
