@@ -17,5 +17,6 @@ def get():
                         concepts=', '.join(d['concepts']),
                         explanation=d['explanation'],
                         media_type=d['media_type'])
+    print("Successfully added '{}'".format(d['title']))
 
 get()
