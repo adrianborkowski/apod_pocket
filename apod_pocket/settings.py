@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # for heroku
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +26,7 @@ SECRET_KEY = '+yxh&jf@mo%^210b64ip1j-neuwm83yivr*^nmh8w1t!l0o&07'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']   # for heroku
 
 
 # Application definition
@@ -106,4 +107,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+STATIC_ROOT = 'staticfiles'  # for heroku
+
 STATIC_URL = '/static/'
+
+DATABASES['default'] =  dj_database_url.config()  # for heroku
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # for heroku
+
+STATICFILES_DIRS = (  # for heroku
+    os.path.join(BASE_DIR, 'static'),
+)
