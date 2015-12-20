@@ -2,9 +2,9 @@ from urllib.request import urlopen
 from .models import Data
 from datetime import date, timedelta
 
-DATE = date(2015, 11, 8)  # DATE OF BEGIN ADDING JSONS' DATA TO DB(YYYY, MM, DD)
+DATE = date(2015, 12, 15)  # DATE OF BEGIN ADDING JSONS' DATA TO DB(YYYY, MM, DD)
 
-for i in range(9):  # HOW MANY DAYS ADD (SINCE DATE FROM VAR. DATE TO PAST)
+for i in range(10):  # HOW MANY DAYS ADD (SINCE DATE FROM VAR. DATE TO PAST)
     past_url = 'https://api.nasa.gov/planetary/apod?concept_tags=True' \
                '&date={date}' \
                '&hd=True' \
