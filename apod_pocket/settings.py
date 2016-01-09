@@ -84,8 +84,8 @@ DATABASES = {
         'NAME': 'apod_pocket',
         'USER': 'admin',
         'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -111,7 +111,7 @@ STATIC_ROOT = 'staticfiles'  # for heroku
 
 STATIC_URL = '/static/'
 
-DATABASES['default'] = dj_database_url.config()  # for heroku
+# DATABASES['default'] = dj_database_url.config()  # for heroku
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # for heroku
 
