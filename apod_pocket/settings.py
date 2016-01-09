@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 import dj_database_url
 
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # for heroku
 
 
@@ -81,11 +82,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'apod_pocket',
-        'USER': 'admin',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'd9biovurstu4af',
+        'USER': 'svzcpzxuhiuhdf',
+        'PASSWORD': 'DQRrwJ-Ctusj9WX6iY-8aEpdPD',
+        'HOST': 'ec2-54-235-170-124.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -111,10 +112,22 @@ STATIC_ROOT = 'staticfiles'  # for heroku
 
 STATIC_URL = '/static/'
 
-DATABASES['default'] = dj_database_url.config()  # for heroku
+# DATABASES['default'] = dj_database_url.config()  # for heroku
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # for heroku
 
 STATICFILES_DIRS = (  # for heroku
     os.path.join(BASE_DIR, 'static'),
 )
+
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+conn = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
+
