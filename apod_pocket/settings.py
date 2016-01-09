@@ -111,7 +111,7 @@ STATIC_ROOT = 'staticfiles'  # for heroku
 
 STATIC_URL = '/static/'
 
-# DATABASES['default'] = dj_database_url.config()  # for heroku
+DATABASES['default'] = dj_database_url.config()  # for heroku
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # for heroku
 
