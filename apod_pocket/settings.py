@@ -82,11 +82,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9biovurstu4af',
-        'USER': 'svzcpzxuhiuhdf',
-        'PASSWORD': 'DQRrwJ-Ctusj9WX6iY-8aEpdPD',
-        'HOST': 'ec2-54-235-170-124.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -112,7 +112,7 @@ STATIC_ROOT = 'staticfiles'  # for heroku
 
 STATIC_URL = '/static/'
 
-# DATABASES['default'] = dj_database_url.config()  # for heroku
+DATABASES['default'] = dj_database_url.config()  # for heroku
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # for heroku
 
