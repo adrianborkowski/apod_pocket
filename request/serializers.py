@@ -5,4 +5,4 @@ from request.models import Data
 class DataSerializer(serializers.ModelSerializer):
     class Meta:
         model = Data
-        fields = ('title', 'created_date', 'url', 'hd_url', 'media_type', 'explanation', 'concepts')
+        fields = ('title', 'date', 'url', 'hd_url', 'concepts', 'type', 'explanation',)
