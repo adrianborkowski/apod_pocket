@@ -1,7 +1,5 @@
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
-# from rest_framework.parsers import JSONParser
 from request.models import Data
 from request.serializers import DataSerializer
 
@@ -16,10 +14,9 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 
-@csrf_exempt
 def data_list(request):
     """
-    List all code snippets, or create a new snippet.
+    List all jsons.
     """
     if request.method == 'GET':
         j = Data.objects.all()
@@ -27,16 +24,15 @@ def data_list(request):
         return JSONResponse(serializer.data)
 
 
-@csrf_exempt
 def data_detail(request, pk):
     """
-    Retrieve, update or delete a code snippet.
+    Retrieve json.
     """
     try:
-        j = Data.objects.get(pk=pk)
+        json = Data.objects.get(pk=pk)
     except Data.DoesNotExist:
         return HttpResponse(status=404)
 
     if request.method == 'GET':
-        serializer = DataSerializer(j)
+        serializer = DataSerializer(json)
         return JSONResponse(serializer.data)

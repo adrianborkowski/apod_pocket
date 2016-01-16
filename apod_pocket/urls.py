@@ -18,7 +18,7 @@ from django.contrib import admin
 from request import views
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'', include(admin.site.urls)),
     url(r'^jsons/$', views.data_list),
     url(r'^jsons/(?P<pk>[0-9]+)/$', views.data_detail),
 ]

@@ -106,6 +106,11 @@ USE_L10N = True
 USE_TZ = True
 
 
+# APOD url settings
+
+URL = 'https://api.nasa.gov/planetary/apod?date={date}&hd=True&api_key=9FeHhRas1jJMT0JKptDppdWx9akFW3plbnfb1gaP'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 

@@ -3,9 +3,9 @@ from .models import Data
 
 
 class DataAdmin(admin.ModelAdmin):
-    search_fields = ('title', 'created_date')
-    list_display = ('title', 'created_date', 'media_type', 'concepts')
-    ordering = ['-created_date', ]
+    search_fields = ('title', 'date')
+    list_display = ('title', 'date', 'type',)
+    ordering = ['-date', ]
 
 
 admin.site.register(Data, DataAdmin)
