@@ -21,22 +21,32 @@ def data_list(request):
     """
     List all code snippets, or create a new snippet.
     """
-    if request.method == 'GET':
-        j = Data.objects.all()
-        serializer = DataSerializer(j, many=True)
-        return JSONResponse(serializer.data)
+    jsons = Data.objects.all()
+    serializer = DataSerializer(jsons, many=True)
+    return JSONResponse(serializer.data)
 
 
+<<<<<<< Updated upstream
 @csrf_exempt
 def data_detail(request, pk):
+=======
+def data_detail(request, date):
+>>>>>>> Stashed changes
     """
     Retrieve, update or delete a code snippet.
     """
     try:
+<<<<<<< Updated upstream
         j = Data.objects.get(pk=pk)
     except Data.DoesNotExist:
         return HttpResponse(status=404)
 
     if request.method == 'GET':
         serializer = DataSerializer(j)
+=======
+        json = Data.objects.get(date=date)
+        serializer = DataSerializer(json)
+>>>>>>> Stashed changes
         return JSONResponse(serializer.data)
+    except Data.DoesNotExist:
+        return HttpResponse(status=404)

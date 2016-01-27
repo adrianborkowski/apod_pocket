@@ -17,8 +17,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from request import views
 
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^jsons/$', views.data_list),
-    url(r'^jsons/(?P<pk>[0-9]+)/$', views.data_detail),
+    url(r'^jsons/(?P<date>[0-9]{4}-[0-9]{2}-[0-9]{2})/$', views.data_detail),
 ]
+
