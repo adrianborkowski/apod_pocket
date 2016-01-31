@@ -26,7 +26,7 @@ def data_detail(request, limit=None, offset=None):
             return HttpResponse(status=404)
         serializer = DataSerializer(json, many=True)
         return JSONResponse(serializer.data)
-    if limit and offset is None:
+    if limit is None and offset is None:
         day = date.today()
         return apod(day, day - timedelta(19))
     elif limit is not None and offset is None:
