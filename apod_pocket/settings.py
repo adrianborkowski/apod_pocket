@@ -80,8 +80,6 @@ WSGI_APPLICATION = 'apod_pocket.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '',
         'USER': '',
@@ -123,9 +121,18 @@ STATIC_ROOT = 'staticfiles'
 
 DATABASES['default'] = dj_database_url.config()
 
+# LOCAL DB SETTINGS:
+"""DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                        'NAME': 'apod_pocket',
+                        'USER': 'admin',
+                        'PASSWORD': '1234',
+                        'HOST': 'localhost',
+                        'PORT': '5432',
+                        }"""
+
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
