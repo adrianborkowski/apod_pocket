@@ -21,19 +21,21 @@ def data_detail(request, limit=None, offset=None):
     """
     def apod(first_day, last_day):
         try:
-            json = Data.objects.filter(date__lte=first_day).filter(date__gte=last_day)
+            json = Data.objects.filter(date__lte=first_day).filter(date__gte=last_day).order_by('-date')
         except Data.DoesNotExist:
             return HttpResponse(status=404)
         serializer = DataSerializer(json, many=True)
         return JSONResponse(serializer.data)
+
+    latest_day = Data.objects.dates('date', 'day', order='DESC')[0]
     if limit is None and offset is None:
-        day = date.today()
+        day = latest_day
         return apod(day, day - timedelta(19))
     elif limit is not None and offset is None:
-        day = date.today()
+        day = latest_day
         return apod(day, day - timedelta(days=int(limit)-1))
     elif offset is not None and limit is None:
-        day = date.today() - timedelta(days=int(offset))
+        day = latest_day - timedelta(days=int(offset))
         return apod(day, day - timedelta(19))
     else:
         day = date.today() - timedelta(days=int(offset))
