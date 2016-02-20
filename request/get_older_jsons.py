@@ -13,19 +13,16 @@ RANGE = int(input('Set number of days to add:'))
 for i in range(RANGE):  # HOW MANY DAYS ADD (SINCE DATE FROM VAR. DATE TO PAST)
     try:
         d = eval(request.urlopen(URL.format(date=DATE)).read().decode("utf-8"))
-    except error.HTTPError:
-        com = 'Internal Service Error: No Apod from {date}!!!'.format(date=DATE)
-        print(com)
-        w = str(datetime.now())+': '+com+'\n'
-        with open('logs', 'a') as f:
-            f.write(w)
-            f.close()
+    except error.HTTPError as error:
+        print('{0}'.format(error))
         DATE = DATE - timedelta(days=1)
         continue
 
     qs = Data.objects.all()
-    if qs.filter(title=d['title']).exists():  # CHECKING IF LAST DATA TITLE IN DB IS THE SAME AS LAST JSON'S TITLE.
-        print("Data {type} '{title}' already exists.".format(type=d['media_type'], title=d['title']))
+    if qs.filter(date=d['date']).exists():  # CHECKING IF LAST DATA TITLE IN DB IS THE SAME AS LAST JSON'S TITLE.
+        print("Data {type} '{title}' from{date} already exists.".format(type=d['media_type'],
+                                                                        title=d['title'],
+                                                                        date=d['date']))
         DATE = DATE - timedelta(days=1)  # SUBTRACTING DATE, days - NUMBER OF DAYS TO SUBTRACT
     else:
         Data.objects.create(title=d.get('title'),  # ADDING DATA TO DB

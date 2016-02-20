@@ -121,7 +121,14 @@ STATIC_ROOT = 'staticfiles'
 
 DATABASES['default'] = dj_database_url.config()
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 # LOCAL DB SETTINGS:
+############
 """DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
                         'NAME': 'apod_pocket',
                         'USER': 'admin',
@@ -129,10 +136,4 @@ DATABASES['default'] = dj_database_url.config()
                         'HOST': 'localhost',
                         'PORT': '5432',
                         }"""
-
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+###########
