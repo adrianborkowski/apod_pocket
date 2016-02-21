@@ -26,7 +26,6 @@ def data_detail(request, limit=None, offset=None):
             return HttpResponse(status=404)
         serializer = DataSerializer(json, many=True)
         return JSONResponse(serializer.data)
-
     latest_day = Data.objects.dates('date', 'day', order='DESC')[0]
     if limit is None and offset is None:
         day = latest_day

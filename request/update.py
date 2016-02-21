@@ -1,3 +1,4 @@
+from time import sleep
 from threading import Timer
 from urllib import error, request
 from .models import Data
@@ -52,4 +53,5 @@ def old():
                                 explanation=d.get('explanation'),)
             print(datetime.now(), ": Successfully added Apod from {date}.".format(date=DATE))
             DATE = DATE - timedelta(days=1)
+        sleep(1)
     old()
