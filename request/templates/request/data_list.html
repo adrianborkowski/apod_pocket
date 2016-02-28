@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+{% for data in object_list %}
+<h6>{{ data.title }}</h6>
+{% endfor %}
+{% endblock%}

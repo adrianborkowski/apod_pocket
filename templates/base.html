@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <title>Apods</title>
+</head>
+<body>
+<ul id="u1">
+    <li><a class='active' href="#home">HOME</a></li>
+    <li><a href="#apods">APODS</a></li>
+    <li><a href="#apod-pocket">APODpocket</a></li>
+    <ul style="float:right;list-style-type:none;">
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#about">ABOUT</a></li>
+    </ul>
+</ul>
+<div id="header">
+    <h1 id="title">APOD</h1>
+    <h2 id="subtitle">Astronomy Picture Of the Day</h2>
+</div>
+<div id="main">
+    <div id="submain">
+        <h3 id="txt"><b>EXPLORE THE WHOLE UNIVERSE</b></h3>
+        <p id="subtxt">See over the 5k amazing pictures of our planet, solar system, galaxy and much more.</p>
+    </div>
+</div>
+<h2>See latest APODs:</h2>
+{% block 'content' %}
+{% endblock %}
+</body>
+</html>

@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from request import views
+from request.views import DataListView
 
 
 urlpatterns = [
     url(r'', include(admin.site.urls)),
     url(r'^apods(&limit=(?P<limit>[0-9]+))?(&offset=(?P<offset>[0-9]+))?/$', views.data_detail),
+    url(r'^web/$', DataListView.as_view())
 ]
 
