@@ -43,6 +43,7 @@ def old():
             except error.HTTPError as err:
                 print(datetime.now(), ': {0}'.format(err))
                 DATE = DATE - timedelta(days=1)
+                sleep(1)
                 continue
             Data.objects.create(title=d.get('title'),
                                 date=d.get('date'),
