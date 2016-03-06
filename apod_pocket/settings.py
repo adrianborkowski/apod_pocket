@@ -129,11 +129,11 @@ STATICFILES_DIRS = (
 
 # LOCAL DB SETTINGS:
 ############
-"""DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
+DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
                         'NAME': 'apod_pocket',
                         'USER': 'admin',
                         'PASSWORD': '1234',
                         'HOST': 'localhost',
                         'PORT': '5432',
-                        }"""
+                        }
 ###########

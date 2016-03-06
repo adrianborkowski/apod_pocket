@@ -3,7 +3,7 @@ from rest_framework.renderers import JSONRenderer
 from request.models import Data
 from request.serializers import DataSerializer
 from datetime import date, timedelta
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 class JSONResponse(HttpResponse):
@@ -42,9 +42,23 @@ def data_detail(request, limit=None, offset=None):
         return apod(day, day - timedelta(days=int(limit)-1))
 
 
-class DataListView(ListView):
+class MainView(ListView):
     model = Data
+    template_name = 'request/main.html'
+    context_object_name = 'main'
+
+    def get_queryset(self):
+        lte = Data.objects.dates('date', 'day', order='DESC')[0]
+        gte = lte - timedelta(2)
+        return Data.objects.filter(date__lte=lte).filter(date__gte=gte).order_by('-date')
 
 
+class ListView(ListView):
+    model = Data
+    template_name = 'request/list.html'
+    context_object_name = 'list'
+
+    def get_queryset(self):
+        return Data.objects.order_by('date')
 
 

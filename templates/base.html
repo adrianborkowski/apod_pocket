@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    {% load staticfiles %}
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <title>Apods</title>
+    <meta charset="UTF-8">
 </head>
 <body>
-<ul id="u1">
-    <li><a class='active' href="#home">HOME</a></li>
-    <li><a href="#apods">APODS</a></li>
+<ul id="bar">
+    <li><a class='active' href='web'>HOME</a></li>
+    <li><a href="list">APODS</a></li>
     <li><a href="#apod-pocket">APODpocket</a></li>
+    <li><img src="{% static 'Logo.png' %}" alt='logo'></li>
     <ul style="float:right;list-style-type:none;">
         <li><a href="#contact">CONTACT</a></li>
         <li><a href="#about">ABOUT</a></li>
     </ul>
 </ul>
-<div id="header">
-    <h1 id="title">APOD</h1>
-    <h2 id="subtitle">Astronomy Picture Of the Day</h2>
-</div>
-<div id="main">
-    <div id="submain">
-        <h3 id="txt"><b>EXPLORE THE WHOLE UNIVERSE</b></h3>
-        <p id="subtxt">See over the 5k amazing pictures of our planet, solar system, galaxy and much more.</p>
+<div>
+    <div id="header">
+        <h1 id="title">APOD.</h1>
+        <h2 id="subtitle"><i>Astronomy Picture Of the Day</i></h2>
     </div>
+    <img id="logo" src="{% static 'Logo.png' %}" alt='logo'>
 </div>
-<h2>See latest APODs:</h2>
-{% block 'content' %}
+{% block content %}
 {% endblock %}
 </body>
 </html>

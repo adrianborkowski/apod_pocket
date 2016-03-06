@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div id="main">
+    <div id="submain">
+        <h3 id="txt"><b>EXPLORE THE WHOLE UNIVERSE</b></h3>
+        <p id="subtxt">See over the 5k amazing pictures of our planet, solar system, galaxy and much more.</p>
+    </div>
+</div>
+<div id="latest">
+<h3>See latest APODs:</h3>
+{% for data in object_list %}
+    <div id="img-main">
+        <a href="{{ data.hd_url }}">
+            <img src="{{ data.url }}" width="300" height="200">
+        </a>
+        <div id="desc">{{ data.title }}</div>
+    </div>
+{% endfor %}
+</div>
+{% endblock%}
