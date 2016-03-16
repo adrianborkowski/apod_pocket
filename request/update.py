@@ -35,8 +35,9 @@ def old():
 
     for i in range(RANGE):
         if Data.objects.filter(date=DATE).exists():
-            print(datetime.now(), ": Apod from {date} already exists.".format(date=DATE))
+            print("{datetime}: Apod from {date} already exists.".format(datetime=datetime.now(), date=DATE))
             DATE = DATE - timedelta(days=1)
+            sleep(1)
         else:
             try:
                 d = eval(request.urlopen(URL.format(date=DATE)).read().decode("utf-8"))
@@ -52,7 +53,7 @@ def old():
                                 copyright=d.get('copyright'),
                                 type=d.get('media_type'),
                                 explanation=d.get('explanation'),)
-            print(datetime.now(), ": Successfully added Apod from {date}.".format(date=DATE))
+            print("{datetime}: Successfully added Apod from {date}.".format(datetime=datetime.now(), date=DATE))
             DATE = DATE - timedelta(days=1)
         sleep(1)
     old()
