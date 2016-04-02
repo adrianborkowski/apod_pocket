@@ -7,23 +7,26 @@ from apod_pocket.settings import URL
 
 
 def new():
-    try:
-        d = eval(request.urlopen(URL.format(date=date.today())).read().decode("utf-8"))
-    except error.HTTPError:
-        print(datetime.now(), ': {0}'.format(error))
-    qs = Data.objects.all()
-    if qs.filter(date=d['date']).exists():
-        print(datetime.now(), ": Apod from {date} already exists.".format(date=d['date']))
-    else:
-        Data.objects.create(title=d.get('title'),
-                            date=d.get('date'),
-                            url=d.get('url'),
-                            hd_url=d.get('hdurl'),
-                            copyright=d.get('copyright'),
-                            type=d.get('media_type'),
-                            explanation=d.get('explanation'),)
-        print(datetime.now(), ": Successfully added {type} '{title}'.".format(type=d['media_type'], title=d['title']))
-    Timer(900, new).start()
+    while True:
+        try:
+            d = eval(request.urlopen(URL.format(date=date.today())).read().decode("utf-8"))
+        except error.HTTPError as err:
+            print(datetime.now(), ': {0}'.format(err))
+            sleep(900)
+            continue
+        qs = Data.objects.all()
+        if qs.filter(date=d['date']).exists():
+            print(datetime.now(), ": Apod from {date} already exists.".format(date=d['date']))
+        else:
+            Data.objects.create(title=d.get('title'),
+                                date=d.get('date'),
+                                url=d.get('url'),
+                                hd_url=d.get('hdurl'),
+                                copyright=d.get('copyright'),
+                                type=d.get('media_type'),
+                                explanation=d.get('explanation'),)
+            print(datetime.now(), ": Successfully added {type} '{title}'.".format(type=d['media_type'], title=d['title']))
+        sleep(900)
 
 
 def old():
