@@ -31,7 +31,7 @@ def new():
 
 def old():
     print('APPENDING DATA TO DATABASE')
-    date_entry = input('Enter a date in YYYY-MM-DD format: ')
+    date_entry = input('Enter a start date in YYYY-MM-DD format: ')
     year, month, day = map(int, date_entry.split('-'))
     DATE = date(year, month, day)
     RANGE = int(input('Set number of days to add:'))
