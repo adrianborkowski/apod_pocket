@@ -58,5 +58,5 @@ def old():
                                 explanation=d.get('explanation'),)
             print("{datetime}: Successfully added Apod from {date}.".format(datetime=datetime.now(), date=DATE))
             DATE = DATE - timedelta(days=1)
-        sleep(1)
+            sleep(1)
     old()
