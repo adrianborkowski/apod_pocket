@@ -1,76 +1,31 @@
-#bar {
-    list-style-type: none;
-    background-color: #0d0d0d;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    opacity: 0.8;
-    z-index: 1;
-}
-
-#bar img{
-    height:auto;
-    width:50px;
-}
-
-li {
-    float: left;
-}
-
-a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 20px 24px;
-    text-decoration: none;
-    font-family:ubuntu;
-    font-size:14px;
-}
-
-a.active {
-    background-color: #1a001a;
-    color: white;
-    border:1px solid white;
-}
-
-a:hover:not(.active) {
-    background-color:#4d4d4d;
-}
-
 body {
-    background-color: #1a001a;
+position: relative;
+}
+
+.strip {
+background-color:white;
+height:10px;
 }
 
 #header {
-    display: inline-block;
-    text-shadow: 10px 10px 5px #000000;
-    position:relative;
-    width:850px;
-    margin-top:100px;
-    margin-left:70px;
-    border:5px solid white;
-    box-shadow: 10px 10px 4px #000000;
-}
-
-#logo {
-    margin-left:50px;
-    height:auto;
-    width:250px;
+    background-image: url('http://apod.nasa.gov/apod/image/1602/NorthEastUSA_ISS_4256.jpg');
+    background-size:cover;
+    height:450px;
 }
 
 #title {
+    text-shadow: 10px 10px 5px #000000;
     color:white;
     text-align:right;
     margin-right:50px;
+    padding-top:183px;
     font-family: ubuntu;
     font-size:84px;
     letter-spacing: 20px;
 }
 
 #subtitle {
+    text-shadow: 10px 10px 5px #000000;
     color:white;
     text-align:right;
     margin-right:50px;
@@ -79,44 +34,66 @@ body {
     letter-spacing:5px;
 }
 
-h6 {
-    color:red;
-
+.affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
 }
 
-#main {
+.navbar {
+    margin-bottom: 0px;
+}
+
+.affix ~ .container-fluid {
+    top: 50px;
     position: relative;
-    margin-top:100px;
-    background-image: url('http://apod.nasa.gov/apod/image/1602/NorthEastUSA_ISS_4256.jpg');
-    background-size:cover;
-    height:500px;
-    }
-
-#submain {
-    box-shadow: 5px 5px 4px #000000;
-    position: absolute;
-    right:50px;
-    bottom:50px;
-    width:570px;
-    height:120px;
-    border:2px solid white;
 }
 
-#txt, #subtxt {
-    text-shadow: 5px 5px 4px #000000;
-    color: white;
-    font-family: ubuntu;
-    text-align:right;
-    margin-right:20px;
-    letter-spacing: 3px;
+.container-fluid {
+    color:white;
+}
+
+#whatisapod {
+    background-color:#1a001a;
+    padding-top:50px;
+    height:500px;
+}
+
+#apods {
+    background-color:#0d0d0d;
+    padding-top:50px;
+    height:500px;
+}
+
+#app {
+    background-color:#1a001a;
+    padding-top:50px;
+    height:500px;
+}
+
+#contact {
+    background-color:#0d0d0d;
+    padding-top:50px;
+    height:500px;
+}
+
+#footer {
+background-color:#1a001a;
+height:60px;
+}
+
+#logo {
+    margin:auto;
+    height:auto;
+    width:50px;
 }
 
 #latest{
     margin-top: 100px;
     margin-bottom:50px;
-    background-color:#e6e6e6;
+    background-color:white;
     font-family:ubuntu;
-    color:#0d0d0d;
+    color:black;
 }
 
 #img-list {
@@ -144,3 +121,4 @@ h6 {
     width: 180px;
     background-color:#1a001a;
 }
+

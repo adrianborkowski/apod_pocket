@@ -5,26 +5,67 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <title>Apods</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body>
-<ul id="bar">
-    <li><a class='active' href='web'>HOME</a></li>
-    <li><a href="list">APODS</a></li>
-    <li><a href="#apod-pocket">APODpocket</a></li>
-    <li><img src="{% static 'Logo.png' %}" alt='logo'></li>
-    <ul style="float:right;list-style-type:none;">
-        <li><a href="#contact">CONTACT</a></li>
-        <li><a href="#about">ABOUT</a></li>
-    </ul>
-</ul>
-<div>
-    <div id="header">
-        <h1 id="title">APOD.</h1>
-        <h2 id="subtitle"><i>Astronomy Picture Of the Day</i></h2>
-    </div>
-    <img id="logo" src="{% static 'Logo.png' %}" alt='logo'>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<div id="header" class="container-fluid">
+    <h1 id="title">APOD.com</h1>
+    <h2 id="subtitle"><i>Astronomy Picture Of the Day</i></h2>
 </div>
-{% block content %}
-{% endblock %}
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="450">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">APOD.com</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#whatisapod">What is APOD?</a></li>
+          <li><a href="#apods">Newest APODs</a></li>
+          <li><a href="#app">APOD-Pocket app</a></li>
+          <li></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+  </div>
+  </div>
+</nav>
+<div id="whatisapod" class="container-fluid">
+  <h1>What is APOD?</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div class="strip" class="container-fluid"></div>
+<div id="apods" class="container-fluid">
+  <h1>See newest APODs</h1>
+  {% for data in object_list %}
+    <div id="img-main">
+        <a href="{{ data.hd_url }}">
+            <img src="{{ data.url }}" width="300" height="200">
+        </a>
+        <div id="desc">{{ data.title }}</div>
+    </div>
+  {% endfor %}
+</div>
+<div class="strip" class="container-fluid"></div>
+<div id="app" class="container-fluid">
+  <h1>APOD-Pocket app</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div class="strip" class="container-fluid"></div>
+<div id="contact" class="container-fluid">
+  <h1>Contact</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+<div class="strip" class="container-fluid"></div>
+<div id="footer"class="container-fluid">
+<h5>APOD.com 2016</h5>
+</div>
 </body>
 </html>
+
