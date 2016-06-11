@@ -1,12 +1,9 @@
-{% extends 'base.html' %}
-{% block content %}
-GALLERY:
+<h1>GALLERY:</h1>
     {% for data in object_list %}
     <div id="img-list">
-        <a href="{{ data.hd_url }}">
+        <a href="{{ data.url }}">
             <img src="{{ data.url }}" width="300" height="200">
         </a>
         <div id="desc">{{ data.title }}</div>
     </div>
     {% endfor %}
-{% endblock%}

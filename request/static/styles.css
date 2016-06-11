@@ -1,16 +1,14 @@
-body {
-position: relative;
-}
-
-.strip {
-background-color:white;
-height:10px;
+.container-fluid {
+    color:white;
 }
 
 #header {
     background-image: url('http://apod.nasa.gov/apod/image/1602/NorthEastUSA_ISS_4256.jpg');
     background-size:cover;
-    height:450px;
+    height:100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #title {
@@ -19,67 +17,90 @@ height:10px;
     text-align:right;
     margin-right:50px;
     padding-top:183px;
-    font-family: ubuntu;
     font-size:84px;
     letter-spacing: 20px;
 }
 
 #subtitle {
-    text-shadow: 10px 10px 5px #000000;
+    text-shadow: 7px 7px 2px #000000;
     color:white;
     text-align:right;
     margin-right:50px;
-    font-family: ubuntu;
     font-size:24px;
     letter-spacing:5px;
 }
 
-.affix {
-    top:0;
-    width: 100%;
-    z-index: 9999 !important;
+#whatisapod{
+    background-image: url('http://apod.nasa.gov/apod/image/1606/horseheadir_hubble_1225.jpg');
+    background-size:cover;
+    min-height:400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top:170px;
 }
 
-.navbar {
-    margin-bottom: 0px;
-}
-
-.affix ~ .container-fluid {
-    top: 50px;
-    position: relative;
-}
-
-.container-fluid {
-    color:white;
-}
-
-#whatisapod {
+#whatisapod-caption {
     background-color:#1a001a;
-    padding-top:50px;
-    height:500px;
+    height:400px;
+    text-align: center;
+    padding:150px;
+    font-size:18px;
 }
 
 #apods {
     background-color:#0d0d0d;
     padding-top:50px;
-    height:500px;
+    height:750px;
+}
+
+#apods h1 {
+    margin-bottom:50px
+}
+
+#link {
+    padding-top:50px;
+    width: 100%;
+    text-align: center;
 }
 
 #app {
+    background-image: url('http://apod.nasa.gov/apod/image/1605/PelicanIC5067close_colombari_q100_watermark1024.jpg');
+    background-size:cover;
+    height:400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top:170px;
+}
+
+#app-caption {
     background-color:#1a001a;
-    padding-top:50px;
-    height:500px;
+    height:400px;
+    text-align: center;
+    padding:150px;
+    font-size:18px;
 }
 
 #contact {
-    background-color:#0d0d0d;
-    padding-top:50px;
-    height:500px;
+    background-image: url('http://apod.nasa.gov/apod/image/1605/NGC5078-LRGBhager1024.jpg');
+    background-size:cover;
+    height:400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top:170px;
 }
 
-#footer {
-background-color:#1a001a;
-height:60px;
+#contact-caption{
+    background-color:#0d0d0d;
+    height:400px;
+    text-align: center;
+    padding:150px;
+    font-size:18px;
 }
 
 #logo {
@@ -92,7 +113,6 @@ height:60px;
     margin-top: 100px;
     margin-bottom:50px;
     background-color:white;
-    font-family:ubuntu;
     color:black;
 }
 
@@ -108,17 +128,63 @@ height:60px;
     height: auto;
 }
 
-#desc{
+.desc{
     color:white;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
+}
+
+.row a:link {
+    text-decoration: none;
 }
 
 #img-main{
     margin: 5px;
-    border: 1px solid #ccc;
     float: auto;
-    width: 180px;
+    width: 300px;
     background-color:#1a001a;
 }
 
+.button {
+  background-color: #1a001a;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#footer {
+    background-color:#1a001a;
+    height:60px;
+    text-align:center;
+}
