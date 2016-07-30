@@ -43,17 +43,19 @@ def data_detail(request, limit=None, offset=None):
 
 
 class BaseView(ListView):
+    """Displaying apods on main page"""
     model = Data
     template_name = 'base.html'
     context_object_name = 'main'
 
     def get_queryset(self):
         lte = Data.objects.dates('date', 'day', order='DESC')[0]
-        gte = lte - timedelta(3)
+        gte = lte - timedelta(2)
         return Data.objects.filter(date__lte=lte).filter(date__gte=gte).order_by('-date')
 
 
 class ArchiveView(ListView):
+    """Displaying all apods in archive"""
     model = Data
     template_name = 'request/archive.html'
     context_object_name = 'archive'

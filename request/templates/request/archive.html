@@ -1,9 +1,28 @@
-<h1>GALLERY:</h1>
-    {% for data in object_list %}
-    <div id="img-list">
-        <a href="{{ data.url }}">
-            <img src="{{ data.url }}" width="300" height="200">
-        </a>
-        <div id="desc">{{ data.title }}</div>
-    </div>
-    {% endfor %}
+{% extends 'base.html' %}
+{% block 'content' %}
+<div class="container-fluid" style="margin-top:10px;">
+    <h1>APODs Archive</h1>
+        {% for data in object_list %}
+        <div class="col-xs-12 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color:#0d0d0d; color:white;">
+                    <p><b>{{ data.date }}</b></p>
+                    <h4>{{ data.title }}</h4>
+                    <p style="font-size:10px">Copyright: {{ data.copyright }}</p>
+                </div>
+                <div class="panel-image hide-panel-body">
+                    <img src="{{ data.url }}" class="panel-image-preview"/>
+                    <label for="toggle-{{ forloop.counter }}"></label>
+                </div>
+                <input type="checkbox" id="toggle-{{ forloop.counter }}" class="panel-image-toggle">
+                <div class="panel-body" style="background-color:#0d0d0d; color:white;">
+                    <p>{{ data.explanation }}</p>
+                </div>
+                <div class="panel-footer text-center" style="background-color:#0d0d0d; color:white;">
+                    <a href="{{ data.hd_url }}" style="text-decoration: none; color:white;"><b>HD</b></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+{% endblock %}

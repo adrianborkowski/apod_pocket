@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <title>APOD.com</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
@@ -31,7 +31,10 @@
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50" style="font-family: ubuntu">
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="font-family: ubuntu; background-color:#1a001a;">
+
+{% block 'content' %}
+
 <div id="header" class="container-fluid">
     <h1 id="title">APOD.com</h1>
     <h2 id="subtitle"><i>Astronomy Picture Of the Day</i></h2>
@@ -62,8 +65,8 @@
 </nav>
 
 <div id="whatisapod" class="container-fluid">
-        <h1>What is APOD?</h1>
-    </div>
+    <h1>What is APOD?</h1>
+</div>
 <div id="whatisapod-caption" class="container-fluid">
     <p>APOD is Astonomy Picture Of the Day.</p>
     <p>Each day a different image or photograph of our fascinating universe is featured by Nasa, along with a brief explanation written by a professional astronomer. </p>
@@ -73,15 +76,49 @@
     <h1>Watch newest APODs</h1>
     <div class="row">
         {% for data in object_list %}
-        <div class="col-sm-3">
-            <a href="{{ data.hd_url }}">
-                <div id="img-main">
-                    <img src="{{ data.url }}" width="300" height="300">
-                    <div class="desc">{{ data.date }}</div>
-                    <div class="desc">{{ data.title }}</div>
+        <div class="col-xs-12 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-image hide-panel-body">
+                    <img id="img{{ forloop.counter}}" src="{{ data.url }}" alt="{{ data.explanation }}" class="panel-image-preview"/>
                 </div>
-            </a>
+                <div class="panel-heading" style="background-color:#1a001a; color:white;">
+                    <p><b>{{ data.date }}</b></p>
+                    <h4>{{ data.title }}</h4>
+                    <p style="font-size:10px">Copyright: {{ data.copyright }}</p>
+                </div>
+            </div>
         </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal panel panel-default">
+            <span class="close">×</span>
+            <img class="modal-content" id="img">
+            <div id="caption"></div>
+        </div>
+
+        <script>
+        var modal = document.getElementById('myModal');
+        var img = document.getElementById('img{{ forloop.counter}}');
+        var modalImg = document.getElementById("img");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+            captionText.innerHTML = this.alt;
+        }
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        </script>
+
         {% endfor %}
     </div>
    <div id="link"><a href="archive"><button class="button"><span>Full Archive</span></button></a></div>
@@ -107,5 +144,6 @@
     <h4>APOD.com 2016</h4>
 </div>
 </body>
+{% endblock %}
 </html>
 

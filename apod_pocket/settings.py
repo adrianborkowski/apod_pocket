@@ -127,8 +127,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# LOCAL DB SETTINGS:
-############
+# REMOTE DB SETTINGS:
+
 """DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
                         'NAME': 'apod_pocket',
                         'USER': 'admin',
@@ -136,4 +136,4 @@ STATICFILES_DIRS = (
                         'HOST': 'localhost',
                         'PORT': '5432',
                         }
-###########"""
+"""
