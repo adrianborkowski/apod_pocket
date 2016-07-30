@@ -128,7 +128,9 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
+
 # REMOTE DB SETTINGS:
+###############
 
 DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
                         'NAME': 'apod_pocket',
