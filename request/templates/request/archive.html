@@ -26,3 +26,23 @@
         {% endfor %}
 </div>
 {% endblock %}
+
+{% for apod in apods %}
+    {{ apod.title }}
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if apods.has_previous %}
+            <a href="?page={{ apods.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ apods.number }} of {{ apods.paginator.num_pages }}.
+        </span>
+
+        {% if apods.has_next %}
+            <a href="?page={{ apods.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>

@@ -16,6 +16,7 @@ import dj_database_url
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -117,23 +118,22 @@ STATIC_URL = '/static/'
 
 # for HEROKU:
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 # DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 # REMOTE DB SETTINGS:
 
-"""DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
+DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
                         'NAME': 'apod_pocket',
                         'USER': 'admin',
                         'PASSWORD': '1234',
                         'HOST': 'localhost',
                         'PORT': '5432',
                         }
-"""

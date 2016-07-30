@@ -4,6 +4,8 @@ from request.models import Data
 from request.serializers import DataSerializer
 from datetime import date, timedelta
 from django.views.generic import ListView, DetailView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 
 
 class JSONResponse(HttpResponse):
@@ -63,4 +65,18 @@ class ArchiveView(ListView):
     def get_queryset(self):
         return Data.objects.order_by('-date')
 
+def listing(request):
+    apods_list = Data.objects.all()
+    paginator = Paginator(apods_list, 5) # Show 25 contacts per page
 
+    page = request.GET.get('page')
+    try:
+        apods = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        apods = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        apods = paginator.page(paginator.num_pages)
+
+    return render(request, 'request/archive.html', {'apods': apods})
