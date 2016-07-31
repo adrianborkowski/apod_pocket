@@ -2,6 +2,25 @@
 {% block 'content' %}
 <div class="container-fluid" style="margin-top:10px;">
     <h1>APODs Archive</h1>
+    <div style="height: 100px; width: 100%">
+    <ul class="pagination" style="margin: auto;">
+        <li{% if page_obj.has_previous %}><a href="?page={{ page_obj.previous_page_number }}"{% else %} class="btn disabled"><a{% endif %}> << </a></li>
+        <li><a {% if page_obj.number = 1 %}class="active"{% endif %}href="?page=1"><b>1</b></a></li>
+        {% if page_obj.number > 2 %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+            <li><a class="active" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+        {% else %}
+            <li><a {% if page_obj.number = 2 %}class="active"{% endif %}href="?page=2">2</a></li>
+            <li><a href="?page=3">3</a></li>
+            <li><a href="?page=4">4</a></li>
+        {% endif %}
+        <li><a href="?page={{ page_obj.paginator.num_pages }}"><b>{{ page_obj.paginator.num_pages }}</b></a></li>
+        {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}"> >> </a></li>
+        {% endif %}
+    </ul>
+</div>
         {% for data in object_list %}
         <div class="col-xs-12 col-md-4">
             <div class="panel panel-default">
@@ -25,24 +44,26 @@
         </div>
         {% endfor %}
 </div>
+
+<div style="height: 100px; width: 100%">
+    <ul class="pagination" style="margin: auto;">
+        <li{% if page_obj.has_previous %}><a href="?page={{ page_obj.previous_page_number }}"{% else %} class="btn disabled"><a{% endif %}> << </a></li>
+        <li><a {% if page_obj.number = 1 %}class="active"{% endif %}href="?page=1"><b>1</b></a></li>
+        {% if page_obj.number > 2 %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+            <li><a class="active" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+        {% else %}
+            <li><a {% if page_obj.number = 2 %}class="active"{% endif %}href="?page=2">2</a></li>
+            <li><a href="?page=3">3</a></li>
+            <li><a href="?page=4">4</a></li>
+        {% endif %}
+        <li><a href="?page={{ page_obj.paginator.num_pages }}"><b>{{ page_obj.paginator.num_pages }}</b></a></li>
+        {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}"> >> </a></li>
+        {% endif %}
+    </ul>
+</div>
+
 {% endblock %}
 
-{% for apod in apods %}
-    {{ apod.title }}
-{% endfor %}
-
-<div class="pagination">
-    <span class="step-links">
-        {% if apods.has_previous %}
-            <a href="?page={{ apods.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ apods.number }} of {{ apods.paginator.num_pages }}.
-        </span>
-
-        {% if apods.has_next %}
-            <a href="?page={{ apods.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-</div>

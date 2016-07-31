@@ -15,8 +15,7 @@ import os
 import dj_database_url
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))  # BASE_DIR
 
 
 # Quick-start development settings - unsuitable for production
@@ -82,7 +81,7 @@ WSGI_APPLICATION = 'apod_pocket.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite3'),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -128,16 +127,3 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-
-# REMOTE DB SETTINGS:
-###############
-
-"""
-DATABASES['default'] = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                        'NAME': 'apod_pocket',
-                        'USER': 'admin',
-                        'PASSWORD': '1234',
-                        'HOST': 'localhost',
-                        'PORT': '5432',
-                        }
-"""
