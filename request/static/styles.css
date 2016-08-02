@@ -158,13 +158,14 @@
 
 #footer {
     background-color:#1a001a;
-    height:60px;
+    height:40px;
     text-align:center;
 }
 
 
 
 /* ARCHIVE */
+/* Pagination*/
 ul.pagination {
     display: inline-block;
     padding: 0;
@@ -181,14 +182,14 @@ ul.pagination li a {
     padding: 8px 16px;
     text-decoration: none;
     background-color: #262626;
+    transition: background-color .3s;
+    margin: 20px 4px;
 }
 
-ul.pagination li a.active {
-    background-color: black;
+ul.pagination li a:hover:not(.active) {
+    background-color:black;
     color: white;
 }
-
-ul.pagination li a:hover:not(.active) {color: white;}
 
 
 
@@ -197,8 +198,9 @@ ul.pagination li a:hover:not(.active) {color: white;}
     position: relative;
 }
 .panel-image img.panel-image-preview {
-   height:300px;
+   height:50vh;
    width:100%;
+   object-fit: cover
 }
 
 .panel-image label {

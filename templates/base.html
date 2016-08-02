@@ -40,6 +40,7 @@
     <h2 id="subtitle"><i>Astronomy Picture Of the Day</i></h2>
 </div>
 
+<!-- The Navbar -->
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="600">
   <div class="container-fluid">
     <div class="navbar-header"><b>
@@ -60,7 +61,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-  </div>
+    </div>
   </div>
 </nav>
 
@@ -138,12 +139,27 @@
     <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
     <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
 </div>
+<script>
+$(document).ready(function(){
+  $('body').scrollspy({target: ".navbar", offset: 50});
+  $("#myNavbar a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>
 
-
+{% endblock %}
 <div id="footer" class="container-fluid">
-    <h4>APOD.com 2016</h4>
+    <h4 style="vertical-align: middle;">© 2016 APOD.com</h4>
 </div>
 </body>
-{% endblock %}
 </html>
 
