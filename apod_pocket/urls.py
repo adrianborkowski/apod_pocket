@@ -21,7 +21,7 @@ from request.views import BaseView, ArchiveView
 urlpatterns = [
     url(r'', include(admin.site.urls)),
     url(r'^apods(&limit=(?P<limit>[0-9]+))?(&offset=(?P<offset>[0-9]+))?/$', views.data_detail),
-    url(r'^web/$', BaseView.as_view()),
+    url(r'^web/$', BaseView.as_view(), name = "main"),
     url('web/archive/$', ArchiveView.as_view()),
 ]
 

@@ -1,61 +1,67 @@
+/* MAIN PAGE */
 .container-fluid {
     color:white;
 }
 
 #header {
+    height:100vh;
     background-image: url('http://apod.nasa.gov/apod/image/1602/NorthEastUSA_ISS_4256.jpg');
     background-size:cover;
-    height:100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 #title {
-    text-shadow: 10px 10px 5px #000000;
     color:white;
     text-align:right;
-    margin-right:50px;
-    padding-top:183px;
-    font-size:84px;
+    margin-right:5%;
+    margin-top:50vh;
+}
+
+#title h1{
+    text-shadow: 10px 10px 5px #000000;
+    font-size:5.25em;
     letter-spacing: 20px;
 }
 
-#subtitle {
+#title h2{
     text-shadow: 7px 7px 2px #000000;
-    color:white;
-    text-align:right;
-    margin-right:50px;
-    font-size:24px;
+    font-size:1.5em;
     letter-spacing:5px;
 }
 
 #whatisapod{
     background-image: url('http://apod.nasa.gov/apod/image/1606/horseheadir_hubble_1225.jpg');
     background-size:cover;
-    min-height:400px;
+    height:70vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    text-align: center;
-    padding-top:170px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #whatisapod-caption {
     background-color:#1a001a;
-    text-align: center;
-    padding:150px;
+    height:70vh;
     font-size:18px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
 }
 
 #apods {
     background-color:#0d0d0d;
     padding-top:50px;
-    height:900px;
+    padding-bottom:50px;
+    height:100%;
 }
 
 #apods h1 {
-    margin-bottom:50px
+    margin-bottom:50px;
 }
 
 #img {
@@ -64,7 +70,7 @@
 }
 
 #link {
-    padding-top:50px;
+    padding-top:5vh;
     width: 100%;
     text-align: center;
 }
@@ -115,39 +121,43 @@
 #app {
     background-image: url('http://apod.nasa.gov/apod/image/1605/PelicanIC5067close_colombari_q100_watermark1024.jpg');
     background-size:cover;
-    height:400px;
+    height:70vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    text-align: center;
-    padding-top:170px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #app-caption {
     background-color:#1a001a;
-    height:400px;
-    text-align: center;
-    padding:150px;
+    height:70vh;
     font-size:18px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #contact {
     background-image: url('http://apod.nasa.gov/apod/image/1605/NGC5078-LRGBhager1024.jpg');
     background-size:cover;
-    height:400px;
+    height:70vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    text-align: center;
-    padding-top:170px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #contact-caption{
     background-color:#0d0d0d;
-    height:400px;
-    text-align: center;
-    padding:150px;
+    height:70vh;
     font-size:18px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #logo {
@@ -163,8 +173,81 @@
 }
 
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    /*overflow: auto; */ /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    border-radius: 0px;
+    border: 1px solid white;
+    height:70vh;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 2em;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: white;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: white;
+    color: white;
+}
+
 
 /* ARCHIVE */
+.archive-bar{
+    height:50px;
+    background-color: #262626;
+    width:100%;
+}
 /* Pagination*/
 ul.pagination {
     display: inline-block;
@@ -191,9 +274,7 @@ ul.pagination li a:hover:not(.active) {
     color: white;
 }
 
-
-
-
+/* images */
 .panel-image {
     position: relative;
 }
@@ -241,72 +322,4 @@ ul.pagination li a:hover:not(.active) {
 .panel-image ~ .panel-footer a {
     padding: 0px 10px;
 	font-size: 1.3em;
-}
-
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    margin: auto;
-    padding: 0;
-    border: 1px solid white;
-    height:450px;
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 48px;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
 }

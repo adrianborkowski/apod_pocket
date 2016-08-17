@@ -7,7 +7,9 @@ from apod_pocket.settings import URL
 
 
 def new():
-    """Function check in every 15 minutes if newest apod is available and save it in database if it doest not exists"""
+    """
+    This function check in every 15 minutes if newest apod is available and save it in database if it doest not exists
+    """
     try:
         d = eval(request.urlopen(URL.format(date=date.today())).read().decode("utf-8"))
     except error.HTTPError:
@@ -28,7 +30,9 @@ def new():
 
 
 def old():
-    """Function allows save older apods by typing date and range"""
+    """
+    This function allows save older apods by typing date and range.
+    """
     print('APPENDING DATA TO DATABASE')
     date_entry = input('Enter a start date in YYYY-MM-DD format: ')
     year, month, day = map(int, date_entry.split('-'))

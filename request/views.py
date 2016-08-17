@@ -40,7 +40,9 @@ def data_detail(request, limit=None, offset=None):
 
 
 class BaseView(ListView):
-    """Displaying apods on main page"""
+    """
+    Displaying apods on main page
+    """
     model = Data
     template_name = 'base.html'
     context_object_name = 'main'
@@ -52,7 +54,9 @@ class BaseView(ListView):
 
 
 class ArchiveView(ListView):
-    """Displaying all apods in archive"""
+    """
+    Displaying all apods in archive
+    """
     model = Data
     template_name = 'request/archive.html'
     context_object_name = 'archive'

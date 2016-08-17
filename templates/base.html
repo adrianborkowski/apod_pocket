@@ -31,18 +31,19 @@
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50" style="font-family: ubuntu; background-color:#1a001a;">
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="font-family:ubuntu; background-color:#1a001a;">
 
 {% block 'content' %}
-
 <div id="header" class="container-fluid">
-    <h1 id="title">APOD.com</h1>
-    <h2 id="subtitle"><i>Astronomy Picture Of the Day</i></h2>
+    <div id="title">
+        <h1>APOD.com</h1>
+        <h2><i>Astronomy Picture Of the Day</i></h2>
+    </div>
 </div>
 
 <!-- The Navbar -->
-<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="600">
-  <div class="container-fluid">
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
     <div class="navbar-header"><b>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -61,16 +62,18 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-    </div>
   </div>
-</nav>
+</div>
+    </nav>
 
 <div id="whatisapod" class="container-fluid">
     <h1>What is APOD?</h1>
 </div>
 <div id="whatisapod-caption" class="container-fluid">
-    <p>APOD is Astonomy Picture Of the Day.</p>
-    <p>Each day a different image or photograph of our fascinating universe is featured by Nasa, along with a brief explanation written by a professional astronomer. </p>
+    <div>
+        <p>APOD is Astonomy Picture Of the Day.</p>
+        <p>Each day a different image or photograph of our fascinating universe is featured by Nasa, along with a brief explanation written by a professional astronomer. </p>
+    </div>
 </div>
 
 <div id="apods" class="container-fluid">
@@ -92,8 +95,8 @@
 
         <!-- The Modal -->
         <div id="myModal" class="modal panel panel-default">
-            <span class="close">×</span>
-            <img class="modal-content" id="img">
+            <span class="close">(x) close</span>
+            <a href="{{ data.hd_url }}"><img class="modal-content" id="img"></a>
             <div id="caption"></div>
         </div>
 
@@ -117,7 +120,6 @@
                 modal.style.display = "none";
             }
         }
-
         </script>
 
         {% endfor %}
@@ -136,10 +138,11 @@
   <h1>Contact</h1>
 </div>
 <div id="contact-caption" class="container-fluid">
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+    <p>In Progress...</p>
 </div>
+
 <script>
+// animated scroll
 $(document).ready(function(){
   $('body').scrollspy({target: ".navbar", offset: 50});
   $("#myNavbar a").on('click', function(event) {
@@ -153,6 +156,11 @@ $(document).ready(function(){
       });
     }
   });
+});
+
+// navbar auto height offset
+$(document).ready(function(){
+    $(".navbar").affix({offset: {top: $("#header").outerHeight(true)} });
 });
 </script>
 
