@@ -9,30 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <style>
-        body {
-      position: relative;
-  }
-  .affix {
-      top:0;
-      width: 100%;
-      z-index: 9999 !important;
-  }
-  .navbar {
-      margin-bottom: 0px;
-      border-radius: 0 !important;
-      -moz-border-radius: 0 !important;
-  }
-
-  .affix ~ .container-fluid {
-     position: relative;
-     top: 0px;
-  }
-    </style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50" style="font-family:ubuntu; background-color:#1a001a;">
-
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 {% block 'content' %}
 <div id="header" class="container-fluid">
     <div id="title">
@@ -124,7 +103,7 @@
 
         {% endfor %}
     </div>
-   <div id="link"><a href="archive"><button class="button"><span>Full Archive</span></button></a></div>
+   <div id="link"><a href="archive"><button class="archive-button"><span>Full Archive</span></button></a></div>
 </div>
 
 <div id="app" class="container-fluid">

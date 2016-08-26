@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block 'content' %}
-<div class="archive-bar">
-<!-- link to main page -->
-    <a href="#">back to APOD.com</a>
+<div class="archive-bar navbar navbar-inverse"">
+    <a href="{% url 'main' %}" target="_self"><button class="back-button"><span>back to APOD.com</span></button></a>
 </div>
 <div class="container-fluid" style="margin-top:10px;">
     <h1>APODs Archive</h1>
@@ -20,7 +19,7 @@
             <li><a {% if page_obj.has_next %} href="?page={{ page_obj.paginator.num_pages }}"
                    {% else %}class="btn disabled"
                    {% endif %} data-toggle="tooltip" title="Last page"> >> </a></li>
-            </ul>
+        </ul>
     </div>
         {% for data in object_list %}
         <div class="col-xs-12 col-md-6 col-lg-4">

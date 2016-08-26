@@ -41,7 +41,7 @@ def data_detail(request, limit=None, offset=None):
 
 class BaseView(ListView):
     """
-    Displaying apods on main page
+    Displaying newest apods on main page
     """
     model = Data
     template_name = 'base.html'

@@ -1,6 +1,34 @@
 /* MAIN PAGE */
+
+body {
+      position: relative;
+      font-family:ubuntu;
+      background-color:#1a001a;
+}
+
+.affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+}
+
+.affix ~ .container-fluid {
+   position: relative;
+   top: 0px;
+}
+
 .container-fluid {
     color:white;
+}
+
+a {
+   text-decoration:none;
 }
 
 #header {
@@ -19,19 +47,19 @@
     margin-top:50vh;
 }
 
-#title h1{
+#title h1 {
     text-shadow: 10px 10px 5px #000000;
     font-size:5.25em;
     letter-spacing: 20px;
 }
 
-#title h2{
+#title h2 {
     text-shadow: 7px 7px 2px #000000;
     font-size:1.5em;
     letter-spacing:5px;
 }
 
-#whatisapod{
+#whatisapod {
     background-image: url('http://apod.nasa.gov/apod/image/1606/horseheadir_hubble_1225.jpg');
     background-size:cover;
     height:70vh;
@@ -70,11 +98,7 @@
     text-align: center;
 }
 
-.row a:link {
-    text-decoration: none;
-}
-
-.button {
+.archive-button {
   background-color: #1a001a;
   border: none;
   color: #FFFFFF;
@@ -88,14 +112,14 @@
   border:1px solid white;
 }
 
-.button span {
+.archive-button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.button span:after {
+.archive-button span:after {
     content: '»';
     position: absolute;
     opacity: 0;
@@ -104,11 +128,11 @@
     transition: 0.5s;
 }
 
-.button:hover span {
+.archive-button:hover span {
     padding-right: 25px;
 }
 
-.button:hover span:after {
+.archive-button:hover span:after {
     opacity: 1;
     right: 0;
 }
@@ -239,11 +263,49 @@
 }
 
 /* ARCHIVE */
-.archive-bar{
+
+.archive-bar .back-button{
     height:50px;
     background-color: #262626;
+}
+
+.archive-bar{
     width:100%;
 }
+
+.back-button {
+    border: none;
+    text-align: center;
+    font-size: 1.25em;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.back-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.back-button span:after {
+    content: '«';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+}
+
+.back-button:hover span {
+    padding-left: 25px;
+}
+
+.back-button:hover span:after {
+    opacity: 1;
+    left: 0;
+}
+
 /* Pagination*/
 ul.pagination {
     display: inline-block;
