@@ -1,8 +1,7 @@
 /* MAIN PAGE */
-
 body {
       position: relative;
-      font-family:ubuntu;
+      font-family: 'Ubuntu', sans-serif;
       background-color:#1a001a;
 }
 
@@ -16,6 +15,17 @@ body {
     margin-bottom: 0px;
     border-radius: 0 !important;
     -moz-border-radius: 0 !important;
+}
+
+.navbar-header {
+    padding-left:40px;
+}
+
+#logo-main, #logo-archive {
+    position:absolute;
+    height:40px;
+    width:auto;
+    margin-top:5px;
 }
 
 .affix ~ .container-fluid {
@@ -179,12 +189,6 @@ a {
     justify-content: center;
 }
 
-#logo {
-    margin:auto;
-    height:auto;
-    width:50px;
-}
-
 #footer {
     background-color:#1a001a;
     height:40px;
@@ -263,22 +267,25 @@ a {
 }
 
 /* ARCHIVE */
-
-.archive-bar .back-button{
+.archive-bar, .back-button{
     height:50px;
     background-color: #262626;
 }
 
 .archive-bar{
+    position:fixed;
     width:100%;
+    padding:0;
 }
 
 .back-button {
+    color: white;
     border: none;
     text-align: center;
     font-size: 1.25em;
     transition: all 0.5s;
     cursor: pointer;
+    padding-left:10px;
 }
 
 .back-button span {
@@ -293,17 +300,48 @@ a {
     position: absolute;
     opacity: 0;
     top: 0;
-    left: -20px;
+    left: -10px;
     transition: 0.5s;
 }
 
 .back-button:hover span {
-    padding-left: 25px;
+    padding-left: 20px;
 }
 
 .back-button:hover span:after {
     opacity: 1;
     left: 0;
+}
+
+#logo-archive {
+    top:50%;
+    left:50%;
+    margin-top:-20px;
+    margin-left:-50px;
+}
+
+input[type=text] {
+    float: right;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #262626;
+    margin: 5px;
+    padding: 7px 20px 7px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 33%;
+}
+
+.glyphicon {
+    position: absolute;
+    right: 0;
+    padding: 18px 15px;
 }
 
 /* Pagination*/
@@ -324,7 +362,7 @@ ul.pagination li a {
     text-decoration: none;
     background-color: #262626;
     transition: background-color .3s;
-    margin: 20px 4px;
+    margin-bottom: 20px;
 }
 
 ul.pagination li a:hover:not(.active) {
@@ -334,9 +372,8 @@ ul.pagination li a:hover:not(.active) {
 
 /* images */
 iframe {
-    height:50vh;
+    height:49vh;
     width:100%;
-    border:none;
  }
 
 .panel-image {

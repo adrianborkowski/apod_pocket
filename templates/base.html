@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -22,28 +23,28 @@
 
 <!-- The Navbar -->
 <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-    <div class="navbar-header"><b>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">APOD.com</a>
+    <img id="logo-main" src="{% static 'Logo.png' %}">
+    <div class="container-fluid">
+        <div class="navbar-header"><b>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">APOD.com</a>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                      <li><a href="#whatisapod">What is APOD?</a></li>
+                      <li><a href="#apods">Newest APODs</a></li>
+                      <li><a href="#app">APOD-Pocket app</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#whatisapod">What is APOD?</a></li>
-          <li><a href="#apods">Newest APODs</a></li>
-          <li><a href="#app">APOD-Pocket app</a></li>
-          <li></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-  </div>
-</div>
-    </nav>
+</nav>
 
 <div id="whatisapod" class="container-fluid">
     <h1>What is APOD?</h1>
