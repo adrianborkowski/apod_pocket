@@ -1,5 +1,5 @@
 APScheduler==3.0.5
-Django==1.8.5
+Django==2.2.24
 Pillow==3.0.0
 decorator==4.0.4
 defusedxml==0.4.1
